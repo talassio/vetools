@@ -62,10 +62,10 @@ reference <- pr[[1]]
 k = 1
 restart:
 for ( station in 1:k ) {
-        reference <- desagregate.MARN(pr[[k]], 
+        reference <- disaggregate.MARN(pr[[k]], 
         reference, return.incomplete=TRUE)
 }
-if ( reference is not yet fully desagregated ) { k <- k + 1 }
+if ( reference is not yet fully disaggregated ) { k <- k + 1 }
 goto restart
 }
 The main feature of this procedure is that it always tries to 
