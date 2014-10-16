@@ -1,0 +1,14 @@
+citHeader("To cite vetools in publications use:")
+
+citEntry(entry = "Book",
+  title        = "Hidrox: Repositorio de Datos Hidroclimáticos para la Gestión de Riesgos Epidemiológicos y Ambientales",
+  author       = personList(as.person("L. Bravo"), as.person("S. Abad"),as.person("I. Llatas"),as.person("A. Salcedo"),as.person("L. Delgado"),as.person(" S. Ramos"),as.person("K. Cordova")),
+  ISBN         = "987-9-8012596-2-6",
+  publisher    = "Cesma, USB",
+  year         = "2012",
+  pages        = "88",
+  textVersion  =
+  paste("L. Bravo, S. Abad, I. Llatas, A. Salcedo, L. Delgado, S. Ramos, K. Cordova.",
+  "Hidrox: Repositorio de Datos Hidroclimáticos para la Gestión de Riesgos Epidemiológicos y Ambientales.", 
+  "2012.", "ISBN:987-9-8012596-2-6.")
+)
