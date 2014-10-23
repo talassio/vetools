@@ -18,7 +18,7 @@ tssum(series, months = 1:12, max.na.fraction = 0.3, safe.check = FALSE)
 }
 
 \value{
-returns a time-series object of class \code{"ts"} of frequency \code{length(meses)} with the accumulated sum over the months defined in \code{meses}.
+returns a time-series object of class \code{"ts"} of frequency \code{length(months)} with the accumulated sum over the months defined in \code{months}.
 }
 
 \author{
