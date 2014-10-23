@@ -1,5 +1,5 @@
 # Verified 1.3.18
-# Version 4.0
+# Version 5.0
 panomapa <- function(collection, main, axis = TRUE,
                    xlab = "Long",
                    ylab = "Lat",
@@ -26,7 +26,7 @@ colf = function(x) {
 
 print_ramp <- function (ColorLevels, pal, mar = c(1,2.5,2.5,2), xlab="", ylab="", ...) {
   par(mar=mar)
-  
+
   image(1, ColorLevels,
         matrix(data = ColorLevels, ncol = length(ColorLevels), nrow = 1),
         col = pal,
@@ -55,8 +55,8 @@ pos = plyr::ldply(catalogo, function(x) {
 D = matrix(c(range(pos[,1]), range(pos[,2])), ncol=2)
 dpa = list()
 for (k in 1:n) {
-  dpa[[k]] = list(qty.disp = length(catalogo[[k]]$Avble.yrs), 
-                  m = length(datos[[k]]), frac.na = sum(is.na(datos[[k]]))/length(datos[[k]]), 
+  dpa[[k]] = list(qty.disp = length(catalogo[[k]]$Avble.yrs),
+                  m = length(datos[[k]]), frac.na = sum(is.na(datos[[k]]))/length(datos[[k]]),
                   frac.ag = sum(datos[[k]] < 0, na.rm = T)/length(datos[[k]]))
 }
 pta = plyr::ldply(dpa, function(x) {
@@ -67,7 +67,7 @@ pta[, 1] = pta[, 1]/m.disp
 pta[pta[, 1] <= 0.1, 1] = 0.1
 
 pt.bg = rgb(colf(pta[, 3])/255, alpha = 0.75)
-leg.pt.bg = rgb(colf(rev(c(0.1, 0.25, 0.5, 0.75, 1)))/255, 
+leg.pt.bg = rgb(colf(rev(c(0.1, 0.25, 0.5, 0.75, 1)))/255,
                 alpha = 0.75)
 par.save <- par(no.readonly = TRUE)
 layout(mat = matrix(c(1,1,1,2,3,4), ncol=2), widths = c(4,1), heights = c(2,2,1))
@@ -99,8 +99,8 @@ if (!is.na(map.abb)) {
         plot(add = T, axes = F, ESS, bg = map.bg, border = map.col, asp = 1)
 }
 
-points(pos, cex = ptatruescale * pt.cex * pta[, 1], bg = pt.bg, pch = pt.pch, 
-       col = pt.col) 
+points(pos, cex = ptatruescale * pt.cex * pta[, 1], bg = pt.bg, pch = pt.pch,
+       col = pt.col)
 
 if (axis == T) {
         axis(1, col = lab.col, col.axis = lab.col)
@@ -120,14 +120,14 @@ if (missing(main)) {
 }
 title(main = main, col.main = lab.col,cex.main=2.5)
 long = round(c(0.1, 0.25, 0.5, 0.75, 1) * m.disp, 0)
-long = apply(cbind(c("<", "<", "<", "<", "<"), long), 1, paste0, collapse = "")
+long = apply(cbind(c("",long[-5]), c("<", "-", "-", "-", "-"), c(long)), 1, paste0, collapse = "")
 par(mar = c(0.5,0.5,0,0.5) + 0.1, mai=c(0,0,1,0))
 plot(c(-1,1), c(-1,6), typ='n', asp=1, axes=F, xlab=NA, ylab=NA)
-legend(x = -1, y = 5.9,  
-       legend = long, 
-       pt.cex = pt.cex * ptatruescale * c(0.2,0.25, 0.5, 0.75, 1), 
+legend(x = -1, y = 5.9,
+       legend = long,
+       pt.cex = pt.cex * ptatruescale * c(0.2,0.25, 0.5, 0.75, 1),
        pch = 21, bg = leg.bg, pt.bg = NA,
-       cex = 1.25, bty = "n", text.col = lab.col, 
+       cex = 1.25, bty = "n", text.col = lab.col,
        y.intersp = leg.y.intersp, )
 title(main = leg.title, cex.main = 1.45, font.main = 2)
 leg.lvl = seq(0, 100, by=5)
