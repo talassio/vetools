@@ -1,33 +1,29 @@
 \name{est.rm}
 \alias{est.rm}
+\alias{est.sel}
 \title{
-Removes stations from a collection of class \code{Catalog}
+Select / remove stations from a collection of class \code{Catalog}
 }
 \description{
-Given a list of indexes (\code{list}), this function removes stations from a 
+Given a list of indexes (\code{list}), this function selects or
+removes stations from a
 collection of data/catalog pair.
 }
 \usage{
 est.rm(collection, list)
+est.sel(collection, list)
 }
 \arguments{
   \item{collection}{ A list of class \code{Catalog}.
 }
   \item{list}{
-A vector of scalars indicating the stations to remove. The elements of this
+A vector of scalars indicating the stations to select or remove.
+The elements of this
 vector must be between 1 and \code{length(collection$data)}.
 }
 }
 \value{
 Returns a list of class \code{Catalog} with the updated collection.
-}
-\note{By specifying a negative list of elements, it is possible to select only those stations:
-\preformatted{
-# Remove first 3 stations:
-col <- est.rm(collection, list=1:3)
-# Select only the first 3 stations:
-col <- est.rm(collection, list=-(1:3))
-}
 }
 \author{
 A.M. Sajo-Castelli

@@ -1,19 +1,14 @@
 # Verified 1.3.18
+# Version 23 Oct 2014
 est.rm <-
 function(collection, list){
-        pr = collection$data
-        catalogo = collection$catalog
-        disp = 1 : length(pr)
-        disp = disp[-list]
-        pr.c.new = list()
-        cat.new = list()
-        k = 0
-        for(j in disp){
-                k = k + 1
-                pr.c.new [[k]] = pr [[j]]
-                cat.new [[k]] = catalogo [[j]]
+        ret = collection
+        for ( element in names(collection) ) {
+                for(j in sort(list, decreasing = TRUE)) {
+                        cmd = paste0('ret$', element, '[[', j, ']] <- NULL')
+                        eval(parse(text = cmd))
+                }
         }
-        col = list(data = pr.c.new, catalog = cat.new)
-        class(col) <- "Catalog"
-        return(col)
+        class(ret) <- "Catalog"
+        return(ret)
 }
