@@ -15,7 +15,7 @@ panomapa <- function(collection, main, axis = TRUE,
                    pt.pch = 21,
                    leg.pt.bg = pt.bg,
                    leg.bg = NA,
-                   leg.title = "Lengevity\n(years)",# "Longevidad\n(años)",
+                   leg.title = "Longevity\n(years)",# "Longevidad\n(años)",
                    leg.offset = c(0,0),
                    leg.y.intersp = 1.75) {
 
