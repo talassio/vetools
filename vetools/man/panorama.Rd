@@ -21,7 +21,7 @@ panomapa(collection, main, axis = TRUE, xlab = "Long",
     map.col = "black", col.ramp = c("Green3", "darkorange1", 
     "red"), arrow.cex = 4.5, arrow.plot = TRUE, 
     pt.col = rgb(0, 0, 0, 0.75), pt.cex = 4.5, pt.pch = 21, 
-    leg.pt.bg = pt.bg, leg.bg = NA, leg.title = "Lengevity\n(years)", 
+    leg.pt.bg = pt.bg, leg.bg = NA, leg.title = "Longevity\n(years)", 
     leg.offset = c(0, 0), leg.y.intersp = 1.75)
 }
 %- maybe also 'usage' for other objects documented here.

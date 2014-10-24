@@ -1,71 +1,81 @@
-# Verified 1.3.18
-# Examples:
-# #MENSUAL
-# meses=1:12 # sea el inicio de cada temporada
-# #BIMENSUAL
-# meses=seq(1, 12, 2) # sea el inicio de cada temporada
-# #TRIMETRAL
-# meses=seq(1, 12, 3) # sea el inicio de cada temporada
-# #TRIMETRAL ###
-# meses=c(2, 5, 8, 11) # sea el inicio de cada temporada
-# #SEMESTRAL
-# meses=c(1, 7) # sea el inicio de cada temporada
-# #SEMESTRAL ###
-# meses=c(4, 10) # sea el inicio de cada temporada
-tssum <-
-function(series, months=1:12, max.na.fraction=0.3, safe.check=FALSE) {
-        meses = months
-        if ((attributes(series)$tsp[3] != 365.25) | (attributes(series)$tsp[3] == 365)) {stop("tssum only handles frequencies 365 and 365.25.")}
-        ts2time <- function(e) {
-                if (length(e) == 1) {
-                        return(tis::jul(e))
-                } else {
-                        return(tis::jul(e[1]+e[2]/(365+lubridate::leap_year(e[1]))))
+# Version 3.0
+# 24 Oct 2014
+tssum <- function(serie, intervals = 1, max.na.fraction = 0.3, safe.check = FALSE) {
+        freq = frequency(serie)
+
+        if ( (attributes(serie)$tsp[3] == 365.25) | (attributes(serie)$tsp[3] == 365) ) {
+                if ( all(intervals <= 12) & all(intervals >= 1) ) {
+                        ss = tssum.d2m(serie = serie, months = intervals,
+                                      max.na.fraction = max.na.fraction,
+                                      safe.check = safe.check)
+                        return(ss)
                 }
         }
-        per = length(meses)
-        e = series
-        if ( per == 1 ) {
-                deltat = 12
+
+        if ( round(freq) != freq ) {
+                warning('frequency not integer, rouding to next integer.')
+                freq = round(freq)
+        }
+        stopifnot(max(intervals) <= freq)
+        stopifnot(intervals == sort(intervals))
+        if ( length(intervals) > 1 ) {
+                stopifnot(intervals[-1] - intervals[-length(intervals)] == intervals[2] - intervals[1])
+                N = intervals[2] - intervals[1]
         } else {
-                deltat = meses[2] - meses[1]
+                N = freq
         }
-
-        M = floor(as.numeric(ceiling(difftime((ts2time(end(e))), (ts2time(start(e))), units="weeks"))/52))
-
-        nd = rep(NA, M)
-        est.men = ts(nd, start=c(tis::year(ts2time(start(e))), tis::month(ts2time(start(e)))), end=c(tis::year(ts2time(end(e))), tis::month(ts2time(end(e)))), frequency=per)
-        AA = seq(tis::year(ts2time(start(e))), tis::year(ts2time(end(e))))
-        loss = 0L
-        for ( y in AA ) {
-                co = 0
-                for (p in meses){
-                        p.jul = tis::jul(paste(y, p, "01", sep="-"))
-                        if ( ts2time(end(series)) <= p.jul ) { break }
-                        co = co + 1
-                        dOY.p.jul = tis::dayOfYear(p.jul)
-                        f = dOY.p.jul + diasdelmes(y, p:(p + deltat - 1)) - 1
-                        dy = tis::dayOfYear(tis::jul(paste(y, "12-31", sep="-")))
-                        if (f > dy ) { yf = y + 1; f = f - dy + 1 } else { yf = y }
-                        w = window(e, start = c(y, dOY.p.jul), end = c(yf, f))
-                        #  w = window(e, start = c(y, dOY.p.jul), end = c(yf, f), extend=T)
-                        if ( (sum(is.na(w)) / length(w)) > max.na.fraction ) {
-                                w.sum = NA
-                                loss = loss + sum(w, na.rm=T) # Loss due to NA imputation
+        start = start(serie)
+        end = end(serie)
+        if ( length(start) > 1 ) {
+                start = start[1] + start[2] / freq
+                end = end[1] + (end[2]-1) / freq
+        }
+        s.m = round(( start - floor(start) ) * freq)
+        ts.start = floor(start) + intervals[1] / freq
+        lend = length(serie)
+        slabs = floor(end) - floor(start) + 1
+        ss = rep(NA, (length(intervals)) * slabs)
+        k = 0
+        if ( ! ( s.m %in% intervals ) ) {
+                n = (intervals[intervals - s.m > 0])[1]
+                if ( ( n / N) >= (1 - max.na.fraction) ) {
+                        mass = serie[s.m : (n - 1)]
+                        if ( ( sum(is.na(mass)) / N ) > max.na.fraction ) {
                         } else {
-                                w.sum = sum(w, na.rm=T)
-                        }
-                        window(est.men, start=c(y, co), end=c(y, co)) = w.sum
-                        ta1 = sum(window(e, start=start(e), c(yf, f)), na.rm=T)
-                        ta2 = sum(window(est.men, start=start(est.men), end=c(y, co)), na.rm=T)
-                        if ( (abs(ta1 - ta2) > 1e-3 ) & !is.na(w.sum) ) {
-                                window(est.men, start=c(y, co), end=c(y, co)) = w.sum + (ta1 - ta2) - loss
-                        }
-                        if (safe.check) {
-                                ta2 = sum(window(est.men, start=start(est.men), end=c(y, co)), na.rm=T)
-                                if (abs(ta1 - ta2 - loss) > 1e-3){ stop("Mass conservation checksum error.") }
+                                k = k + 1
+                                ss[k] = sum(mass, na.rm =  TRUE)
+                                ts.start = ts.start - N / freq
                         }
                 }
         }
-        return(window(est.men, start=start(series), end=end(series)))
+        ex = FALSE
+        for ( y in freq * (0 : (slabs - 1) ) ) {
+                for ( e in intervals ) {
+                        k = k + 1
+                        if (y + e + N - 1 > lend) {
+                                if ( ((y + e + N - 1 - lend) / N) < max.na.fraction ) {
+                                        if ( (y + e) <= lend ) {
+                                                mass = serie[(y + e) : lend]
+                                                if ( ( sum(is.na(mass)) / N ) <= max.na.fraction ) {
+                                                        ss[k] = sum(mass, na.rm =  TRUE)
+                                                }
+                                        }
+                                }
+                                ex = TRUE
+                                break
+                        }
+                        mass = serie[(y + e) : (y + e + N - 1)]
+                        if ( ( sum(is.na(mass)) / N ) > max.na.fraction ) {
+                                ss[k] = NA
+                        } else {
+                                ss[k] = sum(mass, na.rm =  TRUE)
+                        }
+                }
+                if ( ex ) { break }
+        }
+        ss = ts(ss, start = ts.start, frequency = length(intervals))
+        if ( safe.check ) {
+                cat('loss = ', 100 * (1 - sum(ss, na.rm = TRUE) / sum(serie, na.rm = T)), '%\n')
+        }
+        return(ss)
 }
