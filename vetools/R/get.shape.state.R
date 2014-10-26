@@ -31,7 +31,7 @@ function(abb, shape.file="venezuelaestados") {
                 Nombre.UTF8 <-c(
                         "Distrito Federal",
                         "Estado Amazonas",
-                        "Estado Anzoategui",
+                        "Estado Anzo\u00E1tegui",
                         "Estado Apure",
                         "Estado Aragua",
                         "Estado Barinas",
