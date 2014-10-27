@@ -43,14 +43,15 @@ CVG, EDELCA (Electrificación del Caroní) C. A.
 Gerencia de Gestion Ambiental.
 (\url{http://www.cvg.gob.ve/espanol/cvgedelca.html}).
 }
-\examples{\dontrun{
-data(CuencaCaroni)
+\examples{
+data(CuencaCaroni, package = "vetools")
 summary(CuencaCaroni)
-plot(CuencaCaroni$data[[2]])
+plot(CuencaCaroni$data[[2]], main = CuencaCaroni$catalog[[2]]$Name, 
+ylab = CuencaCaroni$catalog[[2]]$Measure.unit)
 start(CuencaCaroni$data[[80]])
 end(CuencaCaroni$data[[80]])
 frequency(CuencaCaroni$data[[80]])
-cat(cc.cat[[1]]$Nombre)}}
+}
 
 \seealso{\var{\link{Vargas}}, 
 \link[=CatalogConvention]{Catalog Convention},

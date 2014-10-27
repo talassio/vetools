@@ -115,7 +115,7 @@ if (missing(main)) {
         }
         if ( ! is.na(map.abb) ) {
                 estados.venezuela <- get.shape.state()
-                main = paste(main, "for", paste(estados.venezuela[map.abb, "shape.name"], collapse = ", "))
+                main = paste(main, "for", paste(estados.venezuela[map.abb, "Name.UTF8"], collapse = ", "))
         }
 }
 title(main = main, col.main = lab.col,cex.main=2.5)

@@ -10,7 +10,7 @@ Missing values for each station are estimated by calling the
 function \code{\link{fill.small.missing}}.
 }
 \usage{
-est.fill(collection, cut = c(1968, 3), at.start = T)
+est.fill(collection, cut = c(1968, 3), at.start = TRUE)
 }
 \arguments{
   \item{collection}{

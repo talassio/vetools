@@ -9,7 +9,7 @@ If a given station starts after the end date (\code{end}) or ends before the
 inital date (\code{start}), it is removed from the catalog.
 }
 \usage{
-est.cut(collection, start = c(1960, 1), end = c(2020, 12))
+est.cut(collection, start = c(1960, 1), end = c(1990, 12))
 }
 \arguments{
   \item{collection}{

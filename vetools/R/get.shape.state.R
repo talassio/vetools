@@ -28,7 +28,7 @@ function(abb, shape.file="venezuelaestados") {
                         "Estado Vargas",
                         "Estado Yaracuy",
                         "Estado Zulia"),
-                Nombre.UTF8 <-c(
+                Name.UTF8 <-c(
                         "Distrito Federal",
                         "Estado Amazonas",
                         "Estado Anzo\u00E1tegui",
@@ -53,7 +53,7 @@ function(abb, shape.file="venezuelaestados") {
                         "Estado Vargas",
                         "Estado Yaracuy",
                         "Estado Zulia"),
-                Nombre <-c(
+                Name <-c(
                         "Distrito Federal",
                         "Estado Amazonas",
                         "Estado Anzoategui",
@@ -103,7 +103,7 @@ function(abb, shape.file="venezuelaestados") {
                         "VA",
                         "YA",
                         "ZU") )
-        colnames(estados.venezuela) <- c("shape.name", "Nombre.UTF8", "Nombre", "Abb")
+        colnames(estados.venezuela) <- c("shape.name", "Name.UTF8", "Name", "Abb")
         rownames(estados.venezuela) <- estados.venezuela$Abb
         if ( missing(abb) ) { return(estados.venezuela) }
         if ( is.na(abb[1]) ) { print(estados.venezuela); return(invisible()) }
