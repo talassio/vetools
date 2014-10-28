@@ -5,7 +5,7 @@
 \description{
         Examples show the spatial trend distribution of rainfall data registered in
 the south state Bolívar in Venezuela. The trend is estimated using yearly totals and
-monthly  anomaly maxima. These examples can be run by typing \code{example(rainfall)}.
+monthly anomaly annual maxima. These examples can be run by typing \code{example(rainfall)}.
 }
 \author{
 	A.M. Sajo-Castelli
@@ -92,7 +92,7 @@ text(sum(start(CuencaCaroni$data[[p]])+end(CuencaCaroni$data[[p]]))/2,
      labels = format(t.beta1[p,], digits=4), col=cla[p], cex=2)
 
 
-# Monthly anomaly maxima ####
+# Monthly anomaly annual maxima ####
 ann <- function(serie) {
         start = start(serie)
         end = end(serie)
@@ -108,10 +108,20 @@ ann <- function(serie) {
         Serie = ts(Serie, start = start(serie), frequency = frequency(serie))
         return(list(Annomalies = Serie, Means = means))
 }
-Colors <- c(paste0("magenta",1:3),
-            paste0("goldenrod",1:3),
-            paste0("turquoise",1:3),
-            paste0("slateblue",1:3))[c(3:12, 1, 2)]
+
+getmaxannual <- function(series) {
+# Assumes series starts on JAN and end on DIC
+        G = matrix(series, ncol = 12, byrow = TRUE)
+        # Ignore max warnings
+        m = apply(G, 1, max, na.rm = TRUE)
+        m[m == -Inf] <- NA
+        m <- ts(m, start=start(series), frequency = 1)
+}
+
+Colors <- c(paste0("magenta", 1 : 3),
+            paste0("goldenrod", 1 : 3),
+            paste0("turquoise", 1 : 3),
+            paste0("slateblue", 1 : 3))[c(3 : 12, 1, 2)]
 
 Annomalies <- lapply(CuencaCaroni$data, ann)
 monthlymeans <- ldply(Annomalies, function(x) {x$Means})
@@ -119,22 +129,28 @@ colnames(monthlymeans) <- month.abb
 
 # Show monthly averages ####
 boxplot(monthlymeans, col = Colors)
-title("Boxplots of averages by month for all stations")
-CuencaCaroni$Annomalies <- lapply(Annomalies, function(x) {x$Annomalies})
+title("Boxplots of monthly averages for all stations")
+CuencaCaroni$Annomalies <- lapply(Annomalies, function(x) { x$Annomalies })
+w = options("warn")$warn
+options(warn = -1)
+CuencaCaroni$Annual.ann <- lapply(CuencaCaroni$Annomalies, getmaxannual)
+options(warn = w)
 
-# Show an annomaly series ####
+# Show an annomaly (annual) series ####
 p = 12
 plot(CuencaCaroni$data[[p]], ylim = c(min(CuencaCaroni$Annomalies[[p]],
         na.rm = TRUE), max(CuencaCaroni$data[[p]],
         na.rm = TRUE)), ylab="[mm]")
-lines(CuencaCaroni$Annomalies[[p]], col='red2')
+lines(CuencaCaroni$Annomalies[[p]], col = 'red2')
+lines(CuencaCaroni$Annual.ann[[p]], col = 'purple', lwd = 5)
+points(CuencaCaroni$Annual.ann[[p]], col = 'purple', lwd = 5)
 title(paste('Monthly measure and annomalies\nfor station', CuencaCaroni$catalog[[p]]$Name))
 
 # Trend models ####
-t.beta1 = ldply(CuencaCaroni$Annomalies, tvalues)
+t.beta1 = ldply(CuencaCaroni$Annual.ann, tvalues)
 
 # Map of trends ####
-cla = rep(NA, length( CuencaCaroni$Annomalies))
+cla = rep(NA, length( CuencaCaroni$Annual.ann))
 cla[t.beta1 <= -2] = col[1]
 cla[-2 < t.beta1 & t.beta1 <= -1] = col[2]
 cla[-1 < t.beta1 & t.beta1 <= -0] = col[3]
@@ -144,22 +160,25 @@ layout(matrix(c(1,2), ncol = 1), widths = c(1,1), heights = c(2,1))
 plot(ES, asp = 1)
 points(LL$Longitude, LL$Latitude, pch = 20, col = cla, asp = 1, cex=1.6)
 plotArrow(ES)
-title('Spatial distribution of trend estimates [Annomalies]')
+title('Spatial distribution of trend estimates [max ann]')
 plot(1 : 5, rep(1, 5), axes = FALSE,
      pch = 20, col = col, cex = 4, ylab = NA,
      xlab = NA, xlim = c(-4, 10))
 text(1 : 5, rep(1, 5), labels = c('-2', '-1', '0', '1', '2'), cex = 0.6)
 
 # Example graphs of trends ####
-lms = ldply(CuencaCaroni$Annomalies, lmsf)
+lms = ldply(CuencaCaroni$Annual.ann, lmsf)
 layout(1)
 p = 1
-plot(CuencaCaroni$data[[p]], ylim = c(min(CuencaCaroni$Annomalies[[p]],
-        na.rm = TRUE), max(CuencaCaroni$data[[p]],
-        na.rm = TRUE)), ylab="[mm]")
-lines(CuencaCaroni$Annomalies[[p]], col='red2')
+plot(CuencaCaroni$Annomalies[[p]], col = "red2", ylab="[mm]")
+#ylim = c(min(CuencaCaroni$Annual.ann[[p]],
+        #na.rm = TRUE), max(CuencaCaroni$data[[p]],
+#        na.rm = TRUE)),
+# lines(CuencaCaroni$Annomalies[[p]], col='red2')
+lines(CuencaCaroni$Annual.ann[[p]], col = 'purple', lwd = 5)
+points(CuencaCaroni$Annual.ann[[p]], col = 'purple', lwd = 5)
 abline(a = lms[p, 1], b = lms[p, 2], col = cla[p], lwd = 7)
-title(paste('Monthly measure and annomalies\nfor station', CuencaCaroni$catalog[[p]]$Name))
+title(paste('Monthly annomalies & annual maxima \nfor station', CuencaCaroni$catalog[[p]]$Name))
 text(sum(start(CuencaCaroni$data[[p]])+end(CuencaCaroni$data[[p]]))/2,
      min(CuencaCaroni$Annomalies[[p]], na.rm = TRUE)/2,
      labels = format(t.beta1[p,], digits=4), col=cla[p], cex=2)
