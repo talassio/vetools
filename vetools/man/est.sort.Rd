@@ -9,14 +9,14 @@ Sorts by \code{start(collection$data[[k]])},
 provided that the member \code{data} is of class \code{ts}.
 }
 \usage{
-est.sort(collection, ascending = T, by.year.only = F)
+est.sort(collection, sort.by.start = TRUE, by.year.only = FALSE)
 }
 \arguments{
   \item{collection}{
 A list of class \code{Catalog} objects.
 }
-  \item{ascending}{
-Boolean value indicating wheather it is ordered by earliest or latest starting station.
+  \item{sort.by.start}{
+Boolean value indicating wheather it is ordered by starting or ending data time span.
 }
   \item{by.year.only}{
 Use only the year to sort instead of year/month. Defaults to FALSE. 

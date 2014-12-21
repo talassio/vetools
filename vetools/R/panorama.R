@@ -13,6 +13,7 @@ function(collection, main, cut,
                      cex.axis = 0.8,
                      cex.yaxis = 0.7,
                      xlab = "Year",
+                     leg.title = "Available data",
                      color.by.data = FALSE,
                      ...) {
         
@@ -76,7 +77,7 @@ function(collection, main, cut,
         if (!missing(cut)) { abline(v=cut, col=cut.col, lty=cut.lty, lwd=cut.lwd) }
         points(disponibles(datos[[1]]), rep(1, length(disponibles(datos[[1]]))), pch=22, bg=xcol[[1]])
 
-        text(xdat[1]+5, ylim[2]-1.5+ylim.names[2],labels="Available data", pos=3, cex=0.85)
+        text(xdat[1]+5, ylim[2]-1.5+ylim.names[2],labels=leg.title, pos=3, cex=0.85)
         points(xdat[1], ylim[2]-2+ylim.names[2], pch=22, bg=rgb(colf(1)/255))
         text(xdat[1], ylim[2]-2+ylim.names[2],labels="100%", pos=4, cex=0.85)
         points(xdat[1]+5, ylim[2]-2+ylim.names[2], pch=22, bg=rgb(colf(0.5)/255))

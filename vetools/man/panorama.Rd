@@ -14,7 +14,7 @@ panorama(collection, main, cut, ylab.push.factor = 10, cut.col = "darkred",
     cut.lty = 1, cut.lwd = 2, col = "RoyalBlue", col.ramp = c("red", 
         "pink", "blue"), col.line = "gray30", mar = c(5, 4 + 
         ylab.push.factor, 3, 2), cex.axis = 0.8, cex.yaxis = 0.7, 
-    xlab = "Year", color.by.data = FALSE, ...) 
+    xlab = "Year", leg.title = "Available data", color.by.data = FALSE, ...) 
 
 panomapa(collection, main, axis = TRUE, xlab = "Long", 
     ylab = "Lat", lab.col = "black", bg = NA, map.bg = NA, 
@@ -47,7 +47,7 @@ Defaults to FALSE.}
 \item{leg.bg}{Legend box Backgrund color, defaults to NA}
 \item{leg.offset}{Legend offset, defaults to \code{c(0, 0)}}
 \item{leg.pt.bg}{Legend  points background color, defaults to \code{pt.bg}}
-\item{leg.title}{Legend title, defaults to "Lengevity\\n(years)"}
+\item{leg.title}{Legend title, defaults to "Lengevity\\n(years)" for panomapa and "Available data" for panorama}
 \item{leg.y.intersp}{Legend y interspace, is passed to \code{legend} and defaults to 1.75}
 \item{main}{Main title}
 \item{map.bg}{Map background color, defaults to NA}
