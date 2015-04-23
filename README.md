@@ -22,9 +22,23 @@ install.packages('vetools')
 ```
 
 Latest builds can be downloaded directly from this site.
+```R
+library('devtools')
+install_github('talassio/vetools')
+```
 
-More info
-=========
-Examples, info and usage material is posted at
-[and@CEsMA](http://www.cesma.usb.ve/~andres/)
+# Some demos
 
+```R
+library(vetools)
+data(Vargas)
+Vargas
+```
+
+```R
+plot(Vargas)
+```
+```R
+plot(Vargas$data[[1]], ylab='mm')
+title(main=paste('Monthly precipitaion [mm]/month', Vargas$catalog[[1]]$Name)
+```
