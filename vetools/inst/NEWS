@@ -1,12 +1,24 @@
-Version 1.3.27
+Version 1.3.30
 -------------------------------------------------------------------------
 
 DEVELOPMENT
+* v1.3.30. Second Major update.
+
+* v1.3.29. Internal Dev version.
+
+* v1.3.28. Internal Dev version.
 
 * v1.3.27. Initial CRAN release.
 
 * v1.3.26. Initial CRAN candidate release.
 
 NEW FEATURES
+* Read.HIDROX() is argus 2.1 compilant
+
+* Maps no longer are in raw 'shape' files bur a re preloaded in a .rda data file. 
+
+* Test file were remove, available upon reques or in the GitHub repo.
+
+* Total package size reduce by 25%. 
 
 BUG FIXES

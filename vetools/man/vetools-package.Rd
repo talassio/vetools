@@ -63,6 +63,9 @@ Class \code{Catalog}\cr
 \code{\link{is.Catalog}}\cr
 \code{\link{as.Catalog}}
 
+Constants\cr
+\code{\link{estados.venezuela}} is a data.frame containing the names and abbreaviatures of the states conforming Venezuela.
+
 For a complete list of functions, use \code{library(help = "vetools")}.
 
 Convention Sheet:\cr
@@ -73,6 +76,9 @@ Datasets:\cr
 \var{\link{Vargas}}\cr
 \var{\link[=Vargas]{Vargas2}}\cr
 
+Maps:\cr
+Maps describing the political border of the nation and each state is available in the
+\code{system.file("maps", package="vetools")} folder.
 
 }
 \author{

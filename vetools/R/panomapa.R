@@ -74,10 +74,10 @@ layout(mat = matrix(c(1,1,1,2,3,4), ncol=2), widths = c(4,1), heights = c(2,2,1)
 
 ptatruescale = par()$fin[1] * 0.66
 
-if (!is.na(map.abb)) {
+if (! all(is.na(map.abb)) ) {
         ESS <- get.shape.state(map.abb)
         SHP.range = matrix(ncol = 4, nrow = length(ESS))
-        for (i in 1:length(ESS)) {
+        for (i in 1 : length(ESS)) {
                 d = slot(ESS, "polygons")[[i]]
                 SHP.sub = matrix(ncol = 4, nrow = length(slot(d,"Polygons")))
                 for (j in 1:length(slot(d, "Polygons"))) {
@@ -95,7 +95,7 @@ if (!is.na(map.abb)) {
 }
 
 plot(axes = F, asp = 1, bty = "n", type = "n", range(D[,1]), range(D[, 2]), ylab = ylab, xlab = xlab)
-if (!is.na(map.abb)) {
+if (! all(is.na(map.abb)) ) {
         plot(add = T, axes = F, ESS, bg = map.bg, border = map.col, asp = 1)
 }
 
@@ -113,7 +113,7 @@ if (missing(main)) {
         } else {
                 main = "Stations longevity"
         }
-        if ( ! is.na(map.abb) ) {
+        if ( ! all(is.na(map.abb)) ) {
                 estados.venezuela <- get.shape.state()
                 main = paste(main, "for", paste(estados.venezuela[map.abb, "Name.UTF8"], collapse = ", "))
         }

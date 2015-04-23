@@ -10,11 +10,12 @@ These functions present an overview of the data quality for a
 spatial perspective.
 }
 \usage{
-panorama(collection, main, cut, ylab.push.factor = 10, cut.col = "darkred", 
-    cut.lty = 1, cut.lwd = 2, col = "RoyalBlue", col.ramp = c("red", 
-        "pink", "blue"), col.line = "gray30", mar = c(5, 4 + 
-        ylab.push.factor, 3, 2), cex.axis = 0.8, cex.yaxis = 0.7, 
-    xlab = "Year", leg.title = "Available data", color.by.data = FALSE, ...) 
+panorama(collection, main, cut, ylab.push.factor = 10,
+    cut.col = "darkred", cut.lty = 1, cut.lwd = 2,
+    col = "RoyalBlue", col.ramp = c("red", "pink","blue"),
+    col.line = "gray30", mar = c(5, 4 + ylab.push.factor, 3, 2),
+    cex.axis = 0.8, cex.yaxis = 0.7, xlab = "Year", 
+    color.by.data = FALSE, zlab = NULL, legend = "Available data", ...) 
 
 panomapa(collection, main, axis = TRUE, xlab = "Long", 
     ylab = "Lat", lab.col = "black", bg = NA, map.bg = NA, 
@@ -44,6 +45,7 @@ Defaults to FALSE.}
 \item{cut.lty}{Line type for the \code{cut} line(s), defaults to 1. Can be a list}
 \item{cut.lwd}{Line width for the \code{cut} line(s), defaults to 2. Can be a list}
 \item{lab.col}{Color for the labels, defaults to "black"}
+\item{legend}{Legend title}
 \item{leg.bg}{Legend box Backgrund color, defaults to NA}
 \item{leg.offset}{Legend offset, defaults to \code{c(0, 0)}}
 \item{leg.pt.bg}{Legend  points background color, defaults to \code{pt.bg}}
@@ -56,9 +58,10 @@ Defaults to FALSE.}
 \item{pt.cex}{Points magnification in map, defaults to 4.5}
 \item{pt.col}{Points color in map, defaults to \code{rgb(0, 0, 0, 0.75)}}
 \item{pt.pch}{Points \code{pch} in map, defaults to 21}
-\item{xlab}{for \code{panorama} defaults to "Year" and for \code{panomapa} to "Long".}
+\item{xlab}{for \code{panorama} defaults to "Year" and for \code{panomapa} to "Long"}
 \item{ylab}{y-axes label, defaults to "Lat"}
 \item{ylab.push.factor}{Factor in which to push the labels in \code{panorama}, defaults to 10}
+\item{zlab}{Labels for the right-most ax, defaults to NULL}
 \item{...}{Any valid parametres for \code{par()}}
 }
 \value{

@@ -26,7 +26,7 @@ This function can also be embeded into \code{filled.contour} function.
 Example two produces the following graphic.
 
 \if{html}{ \figure{plotl.jpg}{plotLayer example}}
-\if{latex}{\figure{plotl.pdf}{options: width=36em}}
+% \if{latex}{\figure{plotl.pdf}{options: width=36em}}
 
 }
 

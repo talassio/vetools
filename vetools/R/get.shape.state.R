@@ -1,115 +1,19 @@
 # Verified 1.3.18
-# Revision 12/10/2014
+# Revision 22/04/2015
+# Version 2.0
+# venezuela.estados moved to global constant
+# shape.file = "venezuelaestados"
+# EST <- maptools::readShapeSpatial(paste(system.file("shape",package="vetools"), shape.file, sep="/"))
+# save(file = shape.file, list = c('EST'), compress = TRUE)
 get.shape.state <-
-function(abb, shape.file="venezuelaestados") {
-        estados.venezuela <- data.frame(
-                shape.name <-c(
-                        "Distrito Federal",
-                        "Estado Amazonas",
-                        "Estado Anzoategui",
-                        "Estado Apure",
-                        "Estado Aragua",
-                        "Estado Barinas",
-                        "Estado Bolivar",
-                        "Estado Carabobo",
-                        "Estado Cojedes",
-                        "Estado Delta Amacuro",
-                        "Estado Falcon",
-                        "Estado Guarico",
-                        "Estado Lara",
-                        "Estado Merida",
-                        "Estado Miranda",
-                        "Estado Monagas",
-                        "Estado Nueva Esparta",
-                        "Estado Portuguesa",
-                        "Estado Sucre",
-                        "Estado Tachira",
-                        "Estado Trujillo",
-                        "Estado Vargas",
-                        "Estado Yaracuy",
-                        "Estado Zulia"),
-                Name.UTF8 <-c(
-                        "Distrito Federal",
-                        "Estado Amazonas",
-                        "Estado Anzo\u00E1tegui",
-                        "Estado Apure",
-                        "Estado Aragua",
-                        "Estado Barinas",
-                        "Estado Bol\u00EDvar",
-                        "Estado Carabobo",
-                        "Estado Cojedes",
-                        "Estado Delta Amacuro",
-                        "Estado Falc\u00F3n",
-                        "Estado Gu\u00E1rico",
-                        "Estado Lara",
-                        "Estado M\u00E9rida",
-                        "Estado Miranda",
-                        "Estado Monagas",
-                        "Estado Nueva Esparta",
-                        "Estado Portuguesa",
-                        "Estado Sucre",
-                        "Estado Tachira",
-                        "Estado Trujillo",
-                        "Estado Vargas",
-                        "Estado Yaracuy",
-                        "Estado Zulia"),
-                Name <-c(
-                        "Distrito Federal",
-                        "Estado Amazonas",
-                        "Estado Anzoategui",
-                        "Estado Apure",
-                        "Estado Aragua",
-                        "Estado Barinas",
-                        "Estado Bolivar",
-                        "Estado Carabobo",
-                        "Estado Cojedes",
-                        "Estado Delta Amacuro",
-                        "Estado Falcon",
-                        "Estado Guarico",
-                        "Estado Lara",
-                        "Estado Merida",
-                        "Estado Miranda",
-                        "Estado Monagas",
-                        "Estado Nueva Esparta",
-                        "Estado Portuguesa",
-                        "Estado Sucre",
-                        "Estado Tachira",
-                        "Estado Trujillo",
-                        "Estado Vargas",
-                        "Estado Yaracuy",
-                        "Estado Zulia"),
-                Abb <- c(
-                        "DC",
-                        "AM",
-                        "AN",
-                        "AP",
-                        "AR",
-                        "BA",
-                        "BO",
-                        "CA",
-                        "CO",
-                        "DA",
-                        "FA",
-                        "GU",
-                        "LA",
-                        "ME",
-                        "MI",
-                        "MO",
-                        "NE",
-                        "PO",
-                        "SU",
-                        "TA",
-                        "TR",
-                        "VA",
-                        "YA",
-                        "ZU") )
-        colnames(estados.venezuela) <- c("shape.name", "Name.UTF8", "Name", "Abb")
-        rownames(estados.venezuela) <- estados.venezuela$Abb
+function(abb, shape.file="venezuelaestados.rda") {
         if ( missing(abb) ) { return(estados.venezuela) }
         if ( is.na(abb[1]) ) { print(estados.venezuela); return(invisible()) }
         abb <- toupper(abb)
-        if ( ! all( abb %in% estados.venezuela$Abb ) ) { stop("Unknown state name. Try get.shape.state(NA).") } 
-        EST <- maptools::readShapeSpatial(paste(system.file("shape",package="vetools"), shape.file, sep="/"))
+        if ( ! all( abb %in% estados.venezuela$Abb ) ) { stop("Unknown state name. Try get.shape.state(NA).") }
+        EST <- NA
+        # EST <- maptools::readShapeSpatial(paste(system.file("shape", package="vetools"), shape.file, sep="/"))
+        load(paste(system.file("maps", package="vetools"), shape.file, sep="/"))
         Estados = estados.venezuela[abb, "shape.name"]
         ESS <- EST[EST$NOM_EDO %in% Estados, ]
         return(ESS)        

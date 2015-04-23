@@ -1,5 +1,5 @@
 # Verified 1.3.18
-est.cut2 <-
+est.cut <-
 function(collection, start = c(1960, 1), end = c(1990, 12), no.window.warning = TRUE) {
         col <- collection
         pr <- collection$data

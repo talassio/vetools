@@ -18,7 +18,7 @@ measured variables. For each
 available data, a \code{read} function is taylored.
 }
 \usage{
-read.HIDROX(file, state = NA, altitudes = NA, serial = NA, unit = NA)
+read.HIDROX(file, verbose = FALSE)
 read.MARN(file)
 read.MINAMB(file, state = NA, YSPLIT = 20)
 }
@@ -31,20 +31,12 @@ read.MINAMB(file, state = NA, YSPLIT = 20)
         see \code{\link[=get.shape.state]{get.shape.state(NA)}} 
         for a complete list.
   }
-  \item{altitudes}{
-        A list containing information relative to the elevation of each station in the file.
-  }
-  \item{serial}{
-        A list containing information relative to the serial of each station in the file.
-  }
-  \item{unit}{
-        A character string identifying the unit of the measured data, e.g. mm/month.
-  }
   \item{YSPLIT}{
         This variable indicates from which 
         decade (1900+\code{YSPLIT}) to consider between the 20th and
         21st centuries.
   }
+  \item{verbose}{ If TRUE displays debuging information.}
 }
 \details{
 To explore the each data format, the package ships three 

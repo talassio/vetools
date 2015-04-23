@@ -52,7 +52,6 @@ Small.Grid <- get.Grid.size(NE, External.Grid, plot=T, x.res=0.25, y.res=0.25)
 }
 
 \if{html}{\figure{grid.png}{Grid overlay example}}
-\if{latex}{\figure{grid.pdf}{options: width=3in}}
 }
 
 \value{

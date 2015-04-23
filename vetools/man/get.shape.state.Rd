@@ -9,8 +9,8 @@ These functions retreive the necesary SHAPE files to display the
 Venezuelan political border or any combination of states.
 }
 \usage{
-get.shape.state(abb, shape.file = "venezuelaestados")
-get.shape.venezuela(shape.file = "venezuela")
+get.shape.state(abb, shape.file = "venezuelaestados.rda")
+get.shape.venezuela(shape.file = "venezuela.rda")
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
