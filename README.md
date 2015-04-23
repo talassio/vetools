@@ -64,7 +64,7 @@ m
 ```
 ![leaflet](https://github.com/talassio/vetools/raw/master/demos/leaflet.png)
 
-## Maps using the OpenstreetMap library
+## Maps using the OpenStreetMap library
 ```R
 library(vetools)
 library(plyr)
