@@ -45,7 +45,7 @@ title(main=paste('Monthly precipitaion [mm]/month', Vargas$catalog[[1]]$Name)
 ```
 ![tsprec](https://github.com/talassio/vetools/raw/master/demos/tsprec.png)
 
-vetools catalog format is can be easily used with other maping packages.
+vetools catalog format can be easily used with other maping packages.
 
 ## Interactive maps using leaflet package
 ```R
