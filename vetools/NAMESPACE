@@ -6,7 +6,6 @@ importFrom('xts', 'xts')
 importFrom('tis', 'year', 'month','jul','dayOfYear')
 importFrom('plyr', 'ldply')
 importFrom('lubridate', 'leap_year')
-importFrom('maptools', 'readShapeSpatial')
 import('sp')
 
 S3method(summary, Catalog)

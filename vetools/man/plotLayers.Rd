@@ -51,7 +51,7 @@ A.M. Sajo-Castelli
 }
 \examples{
 library(maptools)
-library(vetools)
+# library(vetools)
 
 # Example 1 ####
 ZU <- get.shape.state("ZU")
