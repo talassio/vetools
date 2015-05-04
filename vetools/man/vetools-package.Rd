@@ -156,7 +156,8 @@ collection <- CuencaCaroni
 # Plot stations and classify by their altitude
 LL <- ldply(CuencaCaroni$catalog, function(x) { c(x$Longitude, x$Latitude, x$Altitude) })
 colnames(LL) <- c("Longitude", "Latitude", "Altitude")
-( states = get.shape.state() )
+states = get.shape.state()
+states[, c('Name', 'Abb')]
 BO <- get.shape.state("BO")
 plot(BO)
 

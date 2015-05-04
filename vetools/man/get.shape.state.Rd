@@ -55,14 +55,14 @@ SHAPE   -73.37749 -59.7991 0.6492503 12.2012
 \command{\link{get.Grid.size}}.
 }
 \examples{
-## Get national boudary SHAPE
+## Get national boundary:
 VE <- get.shape.venezuela()
 \dontrun{plot(VE, asp=1, axes=T)}
 
-## Get list of all available shapes
-get.shape.state()
+## Get list of all available sub-country maps
+get.shape.state()[, c('Name', 'Abb')]
 
-## Get national and statal boudaries SHAPE
+## Get national and statal boudaries
 VS <- get.shape.state(get.shape.state()$Abb)
 \dontrun{plot(VS, col="gray80", asp=1, axes=F)}
 
