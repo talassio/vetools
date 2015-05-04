@@ -50,8 +50,8 @@ A.M. Sajo-Castelli
 \pkg{\link{vetools}}
 }
 \examples{
-library(maptools)
-# library(vetools)
+# library(maptools)
+library(vetools)
 
 # Example 1 ####
 ZU <- get.shape.state("ZU")

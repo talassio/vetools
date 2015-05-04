@@ -101,6 +101,7 @@ Hidrox: Repositorio de Datos Hidroclimáticos para la Gestión de Riesgos Epidem
 \examples{
 # It is best to introduce the features of this package
 # through some simple examples.
+# options(encoding='UTF-8')
 library(vetools)
 
 # EXAMPLE 1 ####

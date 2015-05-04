@@ -65,11 +65,6 @@ A.M. Sajo-Castelli
 \seealso{
 \link[=CatalogConvention]{Catalog Convention}.
 }
-\examples{\dontrun{
-collection.ZU = read.HIDROX('repo_est_ZU.csv', state="ZU", unit="Prec [mm/month]"))
-summary(collection.ZU)
-collection.ZU
-}}
 
 \keyword{ read }
 \keyword{ load }
