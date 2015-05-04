@@ -1,5 +1,6 @@
 # Verified 1.3.18
 # Version 4.0
+#' @export
 summary.Catalog <-
 function(object, ...) {
         std <- c("Name", "Serial", "Altitude", "Latitude", "Longitude", "Measure.unit", "Measure.code", "Install", "Start", "State", "Avble.yrs")  

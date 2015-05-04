@@ -1,4 +1,5 @@
 # Verified 1.3.18
+#' @export
 m12 <-
 function(x) {
         r = x %% 12

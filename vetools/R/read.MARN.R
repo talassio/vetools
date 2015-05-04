@@ -1,5 +1,6 @@
 # Verified 
 # Version 3.0
+#' @export
 read.MARN <-
 function (file) {
         con <- file(file, open='r', encoding='cp1252')
@@ -13,17 +14,17 @@ function (file) {
         SERIE = numeric(0)
         anios.disponibles = numeric(0)
         while (length(line)) {
-                if ((!ignorar_variable) & (str_detect(line, 'DIVISION DE HIDROLOGIA,'))) {
+                if ((!ignorar_variable) & (stringr::str_detect(line, 'DIVISION DE HIDROLOGIA,'))) {
                         line = readLines(con, n = 1)
                         Variable.tmp = unlist(strsplit(line, '\\.'))
-                        Variable = str_trim(Variable.tmp[1])
-                        Variable.Codigo = as.numeric(str_trim(Variable.tmp[2]))
+                        Variable = stringr::str_trim(Variable.tmp[1])
+                        Variable.Codigo = as.numeric(stringr::str_trim(Variable.tmp[2]))
                         cat("Variable :", Variable, "\n")
                         cat("Code     :", Variable.Codigo, "\n")
                         ignorar_variable = TRUE
                 }
                 # Non empty line:
-                if (str_detect(line, 'ESTACION')) {
+                if (stringr::str_detect(line, 'ESTACION')) {
                         an.dis = unlist(strsplit(line, ':'))
                         anios.disponibles = c(anios.disponibles, as.numeric(an.dis[length(an.dis)]))
                         n = length(anios.disponibles)
@@ -40,21 +41,21 @@ function (file) {
                                 }
                         }
                 }
-                if ((!ignorar_estacion) & (str_detect(line, 'ESTACION'))) {
+                if ((!ignorar_estacion) & (stringr::str_detect(line, 'ESTACION'))) {
                         tmp = unlist(strsplit(line, "SERIAL:"))
                         Estacion = unlist(strsplit(tmp[1], ':'))
-                        Estacion = str_trim(Estacion[2])
+                        Estacion = stringr::str_trim(Estacion[2])
                         tmp = unlist(strsplit(line, "SERIAL: "))
                         Serial = unlist(strsplit(tmp[2], ' '))
-                        Serial = str_trim(Serial[1])
+                        Serial = stringr::str_trim(Serial[1])
                         tmp = unlist(strsplit(line, "EDO: "))
                         Estado = unlist(strsplit(tmp[2], ' '))
-                        Estado = str_trim(Estado[1])
+                        Estado = stringr::str_trim(Estado[1])
                         tmp = unlist(strsplit(line, "EDO: .*A.*O: "))
                         Inicio = as.numeric(tmp[2])
                         cat("Station name: ", Estacion, " (",Serial, "). State: ", Estado, "\n", sep="")
                         line = readLines(con, n = 1)
-                        if (!str_detect(line, 'LATITUD')) { stop("Parse error, LATITUD line expected but not found.") }
+                        if (!stringr::str_detect(line, 'LATITUD')) { stop("Parse error, LATITUD line expected but not found.") }
                         tmp = sub('^.*\\*[ ]*', '', line)
                         tmp = unlist(strsplit(tmp, '[ ]+'))
                         # LONGITUD
@@ -81,11 +82,11 @@ function (file) {
                         ignorar_estacion = TRUE
                         next
                 }
-                if (str_detect(line, 'DIA   ENE   FEB')) {
+                if (stringr::str_detect(line, 'DIA   ENE   FEB')) {
                         line = readLines(con, n = 1)
                         for ( d in 1:28 ) {
                                 line = readLines(con, n = 1)
-                                if (str_detect(line, '^ $')) { 
+                                if (stringr::str_detect(line, '^ $')) { 
                                         line = readLines(con, n = 1);
                                 }
                                 tmp = unlist(strsplit(line, '[ ]+'))

@@ -1,4 +1,5 @@
 # Verified 1.3.18
+#' @export
 diffmonths <-
 function(date1, date2) {
         m1 = start(date1)

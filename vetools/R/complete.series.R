@@ -6,6 +6,7 @@
 # NOTE:
 # It is assumed that "modelo", does not have any intermediary NAs, like using the command: 
 #    fit[[k]] = lm(datos.m.sqrt[[k]] ~ ZZ - 1, singular.ok=T, na.action=na.omit)
+#' @export
 complete.series <-
 function( collection, model, k.ubic=NA, centers=3, nstart=3, weps=0.05, MAX.ITER=100, AEM.debug=T ) {
         indices = function(x, c) {

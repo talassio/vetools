@@ -1,4 +1,5 @@
 # Verified 1.3.18
+#' @export
 time2ym <-
 function(d) {
         if ( !("Date" %in% class(d)) ) { stop("Not a Date class object") }

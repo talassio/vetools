@@ -1,4 +1,5 @@
 # Verified 1.3.18
+#' @export
 plotArrow <- function(
         shape="",
         pos = 1,

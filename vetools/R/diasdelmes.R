@@ -1,4 +1,5 @@
 # Verified 1.3.18
+#' @export
 diasdelmes <-
 function(y, meses) {
         if ( any( meses > 23 ) ) { stop("meses can not be greater than 23 months.") }

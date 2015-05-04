@@ -40,6 +40,7 @@ A.M. Sajo-Castelli
 \command{\link{get.Grid.size}}.
 }
 \examples{
+library(vetools)
 VE <- get.shape.venezuela()
 get.shape.range(VE)
 }

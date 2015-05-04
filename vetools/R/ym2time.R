@@ -1,4 +1,5 @@
 # Verified 1.3.18
+#' @export
 ym2time <-
 function(e) {
         if (length(e) != 2) { 

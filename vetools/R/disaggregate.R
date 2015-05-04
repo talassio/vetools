@@ -1,4 +1,5 @@
 # Verified 1.3.18
+#' @export
 disaggregate.ts <-
 function(x, ...) {
         if ( class(x) != "ts" ) { stop("stream must be of class <ts>.") }

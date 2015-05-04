@@ -1,5 +1,6 @@
 # Verified 1.3.18
 # Version 5.0
+#' @export
 read.HIDROX <-
 function(file, verbose = FALSE) {
         a <- read.csv(file, header=TRUE)

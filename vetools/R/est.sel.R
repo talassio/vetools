@@ -1,3 +1,4 @@
+#' @export
 est.sel <-
         function(collection, list){
                 sel <- (1 : length(collection$catalog))[-list]

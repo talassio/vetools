@@ -1,4 +1,5 @@
 # Verified 1.3.18
+#' @export
 est.sort <-
 function(collection, sort.by.start = TRUE, by.year.only = FALSE) {
         pr <- collection$data

@@ -1,5 +1,6 @@
 # Verified 1.3.18
 # Version 3.0
+#' @export
 est.union = function(collection, fun = mean, return.matrix = FALSE){
         estado.pr <- collection$data[[1]]
         for ( i in 2 : length(collection$data) ) {

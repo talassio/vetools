@@ -1,4 +1,5 @@
 # Verified 1.3.18
+#' @export
 est.fill <-
 function(collection, cut = c(1968, 3), at.start = TRUE) {
         col <- collection

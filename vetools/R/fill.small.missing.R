@@ -5,6 +5,7 @@
 ## D. Villalta
 ## Version 2.0
 ## Minor revisions and window bug fixed.
+#' @export
 fill.small.missing<-function (serie, max.len = 3 * 30, func = median) 
 {
         if ( frequency(serie) != 365.25 ) stop ("Series must be of frequency 365.25.")

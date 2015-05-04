@@ -1,5 +1,6 @@
 # Verified 1.3.18
 # Version 3.0
+#' @export
 read.MINAMB <-
 function (file, state = NA, YSPLIT = 20) {
         con <- file(file, open='r', encoding='cp1252')
@@ -14,45 +15,45 @@ function (file, state = NA, YSPLIT = 20) {
         V.meta = list()
         V = list()
         while (length(line)) {
-                if (str_detect(line, '^$')) { line = readLines(con, n = 1); next }
-                if (str_detect(line, 'ESTACION')) {
+                if (stringr::str_detect(line, '^$')) { line = readLines(con, n = 1); next }
+                if (stringr::str_detect(line, 'ESTACION')) {
                         # Solo interesa nombre de stacion:
-                        Estacion = str_extract(line, ':.*$')
-                        Estacion = str_trim(substring(Estacion, 2))
+                        Estacion = stringr::str_extract(line, ':.*$')
+                        Estacion = stringr::str_trim(substring(Estacion, 2))
                         line = readLines(con, n = 1)
                         next
         
                 }
-                else if (str_detect(line, 'TIPO  SERIAL   DATO')) {
+                else if (stringr::str_detect(line, 'TIPO  SERIAL   DATO')) {
                         line = readLines(con, n = 1)
                         next
                 }
-                else if (str_detect(line, 'BASE DE DATOS')) {
+                else if (stringr::str_detect(line, 'BASE DE DATOS')) {
                         tmp = sub('^.*\\*[ ]*', '', line)
                         tmp = unlist(strsplit(tmp, '[ ]+'))
                         Medicion = tmp[1]
                         Estacion = Estacion
                         Serial = tmp[2]
                         MSNM = as.integer(tmp[4])
-                        Lat = as.integer(str_sub(tmp[5],0,1))
-                        Lat = Lat + as.integer(str_sub(tmp[5],2,3))/60
-                        Lat = Lat + as.integer(str_sub(tmp[5],4,5))/3600
-                        Long = as.integer(str_sub(tmp[6],0,2))
-                        Long = Long + as.integer(str_sub(tmp[6],3,4))/60
-                        Long = Long + as.integer(str_sub(tmp[6],5,6))/3600
+                        Lat = as.integer(stringr::str_sub(tmp[5],0,1))
+                        Lat = Lat + as.integer(stringr::str_sub(tmp[5],2,3))/60
+                        Lat = Lat + as.integer(stringr::str_sub(tmp[5],4,5))/3600
+                        Long = as.integer(stringr::str_sub(tmp[6],0,2))
+                        Long = Long + as.integer(stringr::str_sub(tmp[6],3,4))/60
+                        Long = Long + as.integer(stringr::str_sub(tmp[6],5,6))/3600
                         Long = -Long
                         Unidades = tmp[7]
-                        Instalacion = c(as.numeric(str_sub(tmp[8],5,6)), meses.abb.pos(str_sub(tmp[8],0,3)))
+                        Instalacion = c(as.numeric(stringr::str_sub(tmp[8],5,6)), meses.abb.pos(stringr::str_sub(tmp[8],0,3)))
                         if ( Instalacion[1] > YSPLIT ) {
                                 Instalacion[1] = 1900 + Instalacion[1]
                         } else {
                                 Instalacion[1] = 2000 + Instalacion[1]
                         }
                         if ( ! is.na(tmp[9]) ) {
-                                if ( str_detect(tmp[9], "FUNC.") ) {
+                                if ( stringr::str_detect(tmp[9], "FUNC.") ) {
                                         Final = c(NA, NA)
                                 } else {
-                                        Final = c(as.numeric(str_sub(tmp[9],5,6)), meses.abb.pos(str_sub(tmp[9],0,3)))
+                                        Final = c(as.numeric(stringr::str_sub(tmp[9],5,6)), meses.abb.pos(stringr::str_sub(tmp[9],0,3)))
                                         if ( Final[1] > YSPLIT ) {
                                                 Final[1] = 1900 + Final[1]
                                         } else {
@@ -75,7 +76,7 @@ function (file, state = NA, YSPLIT = 20) {
                                                  )
                         line = readLines(con, n = 1)
                 }
-                else if (str_detect(line, 'ENE      FEB      MAR')) {
+                else if (stringr::str_detect(line, 'ENE      FEB      MAR')) {
                         # Leer datos
                         aquired = F
                         tmp = ''
@@ -86,8 +87,8 @@ function (file, state = NA, YSPLIT = 20) {
                         while (TRUE) {
                                 line = readLines(con, n = 1)
                                 if (!length(line)) { break }
-                                if ( (str_detect(line, '^$')) & (!aquired) ) { next }
-                                if ( (str_detect(line, '^$')) & (aquired) ) { break }
+                                if ( (stringr::str_detect(line, '^$')) & (!aquired) ) { next }
+                                if ( (stringr::str_detect(line, '^$')) & (aquired) ) { break }
                                 aquired = T
                                 tmp    = unlist(strsplit(line, '[ ]+'))
                                 tmp.y  = c(tmp.y, as.numeric(tmp[2]))

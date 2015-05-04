@@ -1,4 +1,5 @@
 # Verified 1.3.18
+#' @export
 get.shape.range <-
 function(shape) {
         SHP.range = matrix(ncol=4, nrow=length(shape))

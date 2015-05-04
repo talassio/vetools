@@ -1,4 +1,5 @@
 # Verified 1.3.18
+#' @export
 est.cut <-
 function(collection, start = c(1960, 1), end = c(1990, 12), no.window.warning = TRUE) {
         col <- collection

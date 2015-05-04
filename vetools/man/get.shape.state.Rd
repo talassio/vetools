@@ -56,7 +56,7 @@ SHAPE   -73.37749 -59.7991 0.6492503 12.2012
 }
 \examples{
 ## Get national boundary:
-VE <- get.shape.venezuela()
+VE <- vetools::get.shape.venezuela()
 \dontrun{plot(VE, asp=1, axes=T)}
 
 ## Get list of all available sub-country maps

@@ -5,6 +5,7 @@
 # shape.file = "venezuelaestados"
 # EST <- maptools::readShapeSpatial(paste(system.file("shape",package="vetools"), shape.file, sep="/"))
 # save(file = shape.file, list = c('EST'), compress = TRUE)
+#' @export
 get.shape.state <-
 function(abb, shape.file="venezuelaestados.rda") {
         if ( missing(abb) ) { return(estados.venezuela) }

@@ -1,4 +1,5 @@
 # Verified 1.3.18
+#' @export
 xts2ts <-
 function(b.xts) {
         b.xts.na = b.xts[!is.na(b.xts)]

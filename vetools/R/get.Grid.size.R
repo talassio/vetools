@@ -1,5 +1,6 @@
 # Verified 1.3.18
 # Version 5.0
+#' @export
 get.Grid.size <-
 function(shape, origin.grid, x.res=0.05, y.res=0.05, plot=FALSE) {
         g = get.shape.range(shape)

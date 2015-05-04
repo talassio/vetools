@@ -1,4 +1,5 @@
 # Verified 1.3.18
+#' @export
 disaggregate.MARN <-
 function(stream=NULL, reference=NULL, na.action="error", asterisk=-9999, date.eps=0.004, float.eps=0.0001, return.incomplete=TRUE) {
         if ( class(stream) != "ts" ) { stop("stream must be of class <ts>.") }

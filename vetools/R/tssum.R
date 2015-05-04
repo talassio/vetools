@@ -1,5 +1,6 @@
 # Version 3.0
 # 24 Oct 2014
+#' @export
 tssum <- function(serie, intervals = 1, max.na.fraction = 0.3, safe.check = FALSE) {
         freq = frequency(serie)
 

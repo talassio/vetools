@@ -1,5 +1,6 @@
 # Version 1.3.21
 # CC3
+#' @export
 Catalog <- function(catalog, data, ...){
         if ( any(unlist(lapply(catalog, .canbeCatalog)) == FALSE) ) { stop('catalog cannot be coerced to class Catalog.') }
         if ( length(catalog) != length(data) ) { stop('catalog and data length differ.') }

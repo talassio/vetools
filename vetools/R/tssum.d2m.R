@@ -1,5 +1,6 @@
 # Verified 1.3.18
 # Version 24 Oct 2014
+#' @export
 tssum.d2m <-
 function(serie, months = 1 : 12, max.na.fraction = 0.3, safe.check = FALSE) {
         if ( (attributes(serie)$tsp[3] != 365.25) & (attributes(serie)$tsp[3] != 365) ) {

@@ -1,5 +1,6 @@
 # Verified 1.3.18
 # Version 4.1
+#' @export
 panorama <-
         function(collection, main, cut,
                  ylab.push.factor = 10,

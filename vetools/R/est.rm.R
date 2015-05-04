@@ -1,5 +1,6 @@
 # Verified 1.3.18
 # Version 23 Oct 2014
+#' @export
 est.rm <-
 function(collection, list){
         ret = collection
