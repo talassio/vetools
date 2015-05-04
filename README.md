@@ -24,7 +24,7 @@ install.packages('vetools')
 Latest builds can be downloaded directly from this site.
 ```R
 library('devtools')
-install_github('talassio/vetools')
+install_github('talassio/vetools/vetools')
 ```
 
 # Some demos
