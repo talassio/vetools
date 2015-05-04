@@ -66,7 +66,7 @@ The first collection \var{Vargas} contains four lists of 33 elements:
 }
 \source{
         Ministerio de Agricultura y Recursos Naturales.
-        División De Hidrología, Meteorología y Oceanología
+        División de \enc{Hidrología}{Hidrologia}, \enc{Meteorología}{Metorologia} y \enc{Oceanología}{Oceanologia}
         (\url{http://www.minamb.gob.ve/}).
 }
 

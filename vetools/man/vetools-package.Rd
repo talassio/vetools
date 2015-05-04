@@ -82,17 +82,18 @@ Maps describing the political border of the nation and each state is available i
 
 }
 \author{
-A. M. Sajo-Castelli. Centro de Estadística y Matemática Aplicada (CEsMA).
+A. M. Sajo-Castelli. Centro de \enc{Estadística}{Estadistica} y \enc{Matemática}{Matematica} Aplicada (CEsMA).
 Universidad Simón Bolívar. Venezuela.
 
-Contributors: D. E. Villalta, L. Bravo. CEsMA, Universidad Simón Bolívar. Venezuela.
+Contributors: D. E. Villalta, L. Bravo. CEsMA, Universidad \enc{Simón}{Simon} \enc{Bolívar}{Bolivar}. Venezuela.
                                                                     
-R. Ramírez. Parque Tecnológico Sartenejas, Universidad Simón Bolívar. Venezuela.
+R. Ramírez. Parque Tecnológico Sartenejas, Universidad \enc{Simón}{Simon} \enc{Bolívar}{Bolivar}. Venezuela.
 
 Maintainer: A. M. Sajo-Castelli <asajo@usb.ve>
 }
 \references{L. Bravo, S. Abad, I. Llatas, A. Salcedo, L. Delgado, S. Ramos, K. Cordova.
-Hidrox: Repositorio de Datos Hidroclimáticos para la Gestión de Riesgos Epidemiológicos y Ambientales.
+Hidrox: Repositorio de Datos \enc{Hidroclimáticos}{Hidroclimaticos} para la \enc{Gestión}{Gestión} de Riesgos 
+\enc{Epidemiológicos}{Epidemiologicos} y Ambientales.
 2012. ISBN:987-9-8012596-2-6.
 }
 \keyword{venezuela}

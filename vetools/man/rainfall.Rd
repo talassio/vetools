@@ -1,10 +1,10 @@
 % This example requires vetools at least version 1.3.29
 \name{rainfall}
 \alias{rainfall}
-\title{Trend estimation for rainfall data of Cuenca del Caroní, Bolívar state, Venezuela}
+\title{Trend estimation for rainfall data of Cuenca del \enc{Caroní}{Caroni}, \enc{Bolívar}{Bolivar} state, Venezuela}
 \description{
         Examples show the spatial trend distribution of rainfall data registered in
-the south state Bolívar in Venezuela. The trend is estimated using yearly totals and
+the south state \enc{Bolívar}{Bolivar} in Venezuela. The trend is estimated using yearly totals and
 monthly anomaly annual maxima. These examples can be run by typing \code{example(rainfall)}.
 }
 \author{

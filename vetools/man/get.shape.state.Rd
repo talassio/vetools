@@ -33,7 +33,7 @@ get.shape.venezuela(shape.file = "venezuela.rda")
 Maps where constructed and exported from ArcGIS 2.x.
 }
 \author{
-        R. Ramírez. Parque Tecnológico Sartenejas, Universidad Simón Bolívar. Venezuela.
+        R. \enc{Ramírez}{Ramirez}. Parque \enc{Tecnológico}{Tecnologico} Sartenejas, Universidad \enc{Simón}{Simon} \enc{Bolívar}{Bolivar}. Venezuela.
         
         Wrapped in \R by A. M. Sajo-Castelli
 }

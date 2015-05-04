@@ -1,13 +1,13 @@
 \name{CuencaCaroni}
 \alias{CuencaCaroni}
 \docType{data}
-\title{Rainfall data for the Cuenca del Caroní, Venezuela}
+\title{Rainfall data for the Cuenca del \enc{Caroní}{Caroni}, Venezuela}
 \description{
   Monthly precipitation values for meteorological stations
-  located in the Cuenca del Caroní, Bolívar state, Venezuela.
+  located in the Cuenca del \enc{Caroní}{Caroni}, \enc{Bolívar}{Bolivar} state, Venezuela.
   
   Data set of precipitation for 91 meteorological stations located
-  in the Bolívar state, Venezuela. Data set follows 
+  in the \enc{Bolívar}{Bolivar} state, Venezuela. Data set follows 
   \pkg{\link[=CatalogConvention]{vetools}} Catalog
   Convention. See \link[=CatalogConvention]{Catalog Convention}.
 }
@@ -27,7 +27,7 @@ This data set contains a \code{collection} of two members of class \code{list}, 
 \details{
 
   This data set provides monthly precipitation for 91 meteorological stations
-  located in the Cuenca del Caroní region of the Bolívar state of Venezuela.
+  located in the Cuenca del \enc{Caroní}{Caroni} region of the \enc{Bolívar}{Bolivar} state of Venezuela.
   The region is delimited between -63.88083, -60.60722 degrees and
   3.895833 and 8.333333 degrees (North). Time-series for statios vary
   between 1949 and 2011.
@@ -38,9 +38,9 @@ This data set contains a \code{collection} of two members of class \code{list}, 
 %  Source file data set is located at \file{src/CuencaCaroni/lluviasmensuales.dat.gz}
 %  inside the package directory (\code{system.file(package="vetools")}).
 \source{
-Ministerio de Industrías básicas y Minería.
-CVG, EDELCA (Electrificación del Caroní) C. A.
-Gerencia de Gestion Ambiental.
+Ministerio de \enc{Industrías}{Industrias} \enc{básicas}{basicas} y \enc{Minería}{Mineria}.
+CVG, EDELCA (\enc{Electrificación}{Electrificacion} del \enc{Caroní}{Caroni}) C. A.
+Gerencia de \enc{Gestión}{Gestion} Ambiental.
 (\url{http://www.cvg.gob.ve/espanol/cvgedelca.html}).
 }
 \examples{
@@ -61,3 +61,4 @@ frequency(CuencaCaroni$data[[80]])
 \keyword{datasets}
 \keyword{venezuela}
 \keyword{caroni}
+

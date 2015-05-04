@@ -38,12 +38,12 @@ read.MINAMB(file, state = NA, YSPLIT = 20)
   }
   \item{verbose}{ If TRUE displays debuging information.}
 }
-\details{
-To explore the each data format, the package ships three 
-test files.\cr
-See the folder
-\code{system.file("tests",package="vetools")}.
-}
+% \details{
+% To explore the each data format, the package ships three 
+% test files.\cr
+% See the folder
+% \code{system.file("tests",package="vetools")}.
+% }
 \value{
 Returns a list of class \code{Catalog} with exactly two members, 
 see \link[=CatalogConvention]{Catalog Convention}.
@@ -54,8 +54,8 @@ objects \code{ts}.}
 \references{
 L. Bravo, S. Abad, I. Llatas, A. Salcedo, L. Delgado, 
 S. Ramos, K. Cordova.
-Hidrox: Repositorio de Datos Hidroclimáticos para la 
-Gestión de Riesgos Epidemiológicos y Ambientales.
+Hidrox: Repositorio de Datos \enc{Hidroclimáticos}{Hidroclimaticos} para la 
+\enc{Gestión}{Gestion} de Riesgos \enc{Epidemiológicos}{Epidemiologicos} y Ambientales.
 2012. ISBN:987-9-8012596-2-6.
 }
 \author{
