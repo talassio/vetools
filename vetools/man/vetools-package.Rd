@@ -83,16 +83,16 @@ Maps describing the political border of the nation and each state is available i
 }
 \author{
 A. M. Sajo-Castelli. Centro de \enc{Estadística}{Estadistica} y \enc{Matemática}{Matematica} Aplicada (CEsMA).
-Universidad Simón Bolívar. Venezuela.
+Universidad \enc{Simón}{Simon} \enc{Bolívar}{Bolivar}. Venezuela.
 
 Contributors: D. E. Villalta, L. Bravo. CEsMA, Universidad \enc{Simón}{Simon} \enc{Bolívar}{Bolivar}. Venezuela.
                                                                     
-R. Ramírez. Parque Tecnológico Sartenejas, Universidad \enc{Simón}{Simon} \enc{Bolívar}{Bolivar}. Venezuela.
+R. \enc{Ramírez}{Ramirez}. Parque \enc{Tecnológico}{Tecnologico} Sartenejas, Universidad \enc{Simón}{Simon} \enc{Bolívar}{Bolivar}. Venezuela.
 
 Maintainer: A. M. Sajo-Castelli <asajo@usb.ve>
 }
 \references{L. Bravo, S. Abad, I. Llatas, A. Salcedo, L. Delgado, S. Ramos, K. Cordova.
-Hidrox: Repositorio de Datos \enc{Hidroclimáticos}{Hidroclimaticos} para la \enc{Gestión}{Gestión} de Riesgos 
+Hidrox: Repositorio de Datos \enc{Hidroclimáticos}{Hidroclimaticos} para la \enc{Gestión}{Gestion} de Riesgos 
 \enc{Epidemiológicos}{Epidemiologicos} y Ambientales.
 2012. ISBN:987-9-8012596-2-6.
 }
@@ -102,7 +102,6 @@ Hidrox: Repositorio de Datos \enc{Hidroclimáticos}{Hidroclimaticos} para la \en
 \examples{
 # It is best to introduce the features of this package
 # through some simple examples.
-# options(encoding='UTF-8')
 library(vetools)
 
 # EXAMPLE 1 ####
