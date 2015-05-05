@@ -1,7 +1,7 @@
 Encoding: UTF-8
 Package: vetools
-Depends: R (>= 2.10), sp
-Imports: stringr, tis, lubridate, plyr, xts
+Depends: R (>= 2.10)
+Imports: sp, stringr, tis, lubridate, plyr, xts
 Maintainer: Andrew Sajo-Castelli <asajo@usb.ve>
 License: GPL
 Title: Tools for Venezuelan Environmental Data
@@ -9,8 +9,8 @@ LazyData: false
 Type: Package
 Authors@R: c(person("Andrew", "Sajo-Castelli", email="asajo@usb.ve", role = c("aut", "cre")), person("Desiree", "Villalta", role = "ctb"),person("Lelys", "Bravo", role = "ctb"))
 Description: Integrated data management library that offers a variety of tools concerning the loading and manipulation of environmental data available from different Venezuelan governmental sources. Facilities are provided to plot temporal and spatial data as well as understand the health of a collection of meteorological data.
-Version: 1.3-30
-Revision: $Rev: 3 $
+Version: 1.3-31
+Revision: $Rev: 1 $
 BugReports: https://github.com/talassio/vetools/issues
 Packaged: 2015-04-29 19:49:24 UTC; cesma
 Author: Andrew Sajo-Castelli [aut, cre], Desiree Villalta [ctb], Lelys Bravo [ctb]

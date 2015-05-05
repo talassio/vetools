@@ -1,6 +1,7 @@
 # Verified 1.3.18
 # Version 5.0
 #' @export
+#' @importClassesFrom sp SpatialPolygons
 panomapa <- function(collection, main, axis = TRUE,
                    xlab = "Long",
                    ylab = "Lat",

@@ -50,9 +50,6 @@ A.M. Sajo-Castelli
 \pkg{\link{vetools}}
 }
 \examples{
-# library(maptools)
-library(vetools)
-
 # Example 1 ####
 ZU <- get.shape.state("ZU")
 border <- list(FUN = plot, ZU, asp = 1, lwd = 2, 
