@@ -2,6 +2,8 @@ Version 1.3.30
 -------------------------------------------------------------------------
 
 DEVELOPMENT
+* v1.3.31. Removed dependencies sp, RC2
+
 * v1.3.30. Second Major update.
 
 * v1.3.29. Internal Dev version.
@@ -13,6 +15,8 @@ DEVELOPMENT
 * v1.3.26. Initial CRAN candidate release.
 
 NEW FEATURES
+* No more 'Depends' only 'Imports'
+
 * Read.HIDROX() is argus 2.1 compilant
 
 * Maps no longer are in raw 'shape' files bur a re preloaded in a .rda data file. 
