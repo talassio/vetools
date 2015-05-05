@@ -1,7 +1,6 @@
 # Verified 1.3.18
 # Version 5.0
 #' @export
-#' @importClassesFrom sp SpatialPolygons
 panomapa <- function(collection, main, axis = TRUE,
                    xlab = "Long",
                    ylab = "Lat",
@@ -98,7 +97,7 @@ if (! all(is.na(map.abb)) ) {
 
 plot(axes = F, asp = 1, bty = "n", type = "n", range(D[,1]), range(D[, 2]), ylab = ylab, xlab = xlab)
 if (! all(is.na(map.abb)) ) {
-        plot(add = T, axes = F, ESS, bg = map.bg, border = map.col, asp = 1)
+        sp::plot(add = T, axes = F, ESS, bg = map.bg, border = map.col, asp = 1)
 }
 
 points(pos, cex = ptatruescale * pt.cex * pta[, 1], bg = pt.bg, pch = pt.pch,

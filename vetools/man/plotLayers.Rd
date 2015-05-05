@@ -52,7 +52,7 @@ A.M. Sajo-Castelli
 \examples{
 # Example 1 ####
 ZU <- get.shape.state("ZU")
-border <- list(FUN = plot, ZU, asp = 1, lwd = 2, 
+border <- list(FUN = sp::plot, ZU, asp = 1, lwd = 2, 
                border = "blue", col = NA, add = TRUE)
 r <- get.shape.range(ZU)
 x <- seq(r[1], r[2], length.out = nrow(volcano))

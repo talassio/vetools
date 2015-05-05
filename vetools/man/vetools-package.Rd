@@ -103,6 +103,7 @@ Hidrox: Repositorio de Datos \enc{Hidroclimáticos}{Hidroclimaticos} para la \en
 # It is best to introduce the features of this package
 # through some simple examples.
 library(vetools)
+library(sp)
 
 # EXAMPLE 1 ####
 # This example shows how to manipulate a 

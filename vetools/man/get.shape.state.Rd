@@ -55,20 +55,22 @@ SHAPE   -73.37749 -59.7991 0.6492503 12.2012
 \command{\link{get.Grid.size}}.
 }
 \examples{
+library(vetools)
+library(sp)
 ## Get national boundary:
-VE <- vetools::get.shape.venezuela()
-\dontrun{plot(VE, asp=1, axes=T)}
+VE <- get.shape.venezuela()
+plot(VE, asp = 1, axes = TRUE)
 
 ## Get list of all available sub-country maps
 get.shape.state()[, c('Name', 'Abb')]
 
 ## Get national and statal boudaries
 VS <- get.shape.state(get.shape.state()$Abb)
-\dontrun{plot(VS, col="gray80", asp=1, axes=F)}
+plot(VS, col = "gray80", asp = 1, axes = FALSE)
 
 ## Retrieve Zone III states
 BOAMDA = get.shape.state(c("BO", "AM", "DA"))
-\dontrun{plot(BOAMDA, add=T, border="darkred", lwd=2, col="pink")}
+plot(BOAMDA, add = TRUE, border = "darkred", lwd = 2, col = "pink")
 }
 
 \keyword{ shapefile }

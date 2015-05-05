@@ -1,7 +1,6 @@
 # Verified 1.3.18
 # Version 5.0
 #' @export
-#' @importClassesFrom sp SpatialPolygons
 get.Grid.size <-
 function(shape, origin.grid, x.res=0.05, y.res=0.05, plot=FALSE) {
         g = get.shape.range(shape)
@@ -33,14 +32,14 @@ function(shape, origin.grid, x.res=0.05, y.res=0.05, plot=FALSE) {
         hcol = length(longs)
         if ( plot == T ) {
                 if ( ! missing(origin.grid) ) { 
-                        plot(rep(origin.grid$longs, each=origin.grid$nrow), rep(origin.grid$lats, origin.grid$ncol), asp=1, pch=3, xlab=NA, ylab=NA)
-                        points(rep(longs, each=hrow), rep(lats,hcol), pch=4, col='red', cex=0.5)
+                        plot(rep(origin.grid$longs, each = origin.grid$nrow), rep(origin.grid$lats, origin.grid$ncol), asp=1, pch=3, xlab=NA, ylab=NA)
+                        points(rep(longs, each = hrow), rep(lats,hcol), pch=4, col='red', cex=0.5)
                 } else {
-                        plot(rep(longs, each=hrow), rep(lats,hcol), pch=4, col='red', xlab=NA, ylab=NA, asp=1)
+                        plot(rep(longs, each = hrow), rep(lats,hcol), pch=4, col='red', xlab=NA, ylab=NA, asp=1)
                 }
-                plot(shape, add=TRUE)
-                abline(v=g[, 1:2], lty=2)
-                abline(h=g[, 3:4], lty=2)
+                sp::plot(shape, add = TRUE)
+                abline(v=g[, 1:2], lty = 2)
+                abline(h=g[, 3:4], lty = 2)
                 cat("Grid size: ", hrow, "x", hcol, "\n")
         }
         return(list(ncol=hcol, nrow=hrow, longs=longs, lats=lats, x.res=x.res, y.res=y.res, grid=cbind(rep(longs, each=hrow), rep(lats, hcol))))

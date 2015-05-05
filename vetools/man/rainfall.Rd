@@ -13,6 +13,7 @@ monthly anomaly annual maxima. These examples can be run by typing \code{example
 \examples{
 library(vetools)
 library(plyr)
+library(sp)
 
 # Input data ####
 data(CuencaCaroni)
