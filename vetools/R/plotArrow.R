@@ -1,7 +1,7 @@
 # Verified 1.3.18
 #' @export
 plotArrow <- function(
-        shape="",
+        shape = "",
         pos = 1,
         offset.arrow = c(0, 0),
         north.lwd = par()$lwd+2,
@@ -9,10 +9,12 @@ plotArrow <- function(
         ...)
         {
                 position = pos
-                x = c(0,0,0.5)
-                y = c(0,3.5,2)
-                nx = c(0,0,1,1)-0.5
-                ny = c(0,1,0,1)+0.4
+#                 x = c(0, 0, 0.5, 0, -0.5)
+#                 y = c(0, 3.5, 2, 3.5, 2 )
+                x = c(0,   0, 0.5,   0, -0.5,    0)
+                y = c(0, 3.2,   2, 3.5,    2,  3.2)
+                nx = c(0, 0, 1, 1) - 0.5
+                ny = c(0, 1, 0, 1) + 0.4
                 dots = list(...)
                 cin = par()$cin
                 cex = par()$cex
@@ -48,10 +50,10 @@ plotArrow <- function(
                         # Do nothing!
                 }
 
-        lines(north.arrow[, 1] + xy.arrow[1] + offset.arrow[1], 
+        polygon(north.arrow[, 1] + xy.arrow[1] + offset.arrow[1], 
               north.arrow[, 2] + xy.arrow[2] + offset.arrow[2], 
               lwd = lwd, 
-              col = col)
+              border = col, col = col)
         lines(north.text[, 1] + xy.arrow[1] + offset.arrow[1], 
               north.text[, 2] + xy.arrow[2] + offset.arrow[2], 
               lwd = north.lwd, 
