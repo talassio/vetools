@@ -4,9 +4,7 @@
 read.HIDROX <-
 function(file, verbose = FALSE) {
         a <- read.csv(file, header=TRUE)
-        # Nombres <- levels(a[,6])
-        # Nombres <- levels(a$Estacion)
-        Nombres <- unique(a$Serial.Estacion)
+        Nombres <- unique(a$Serial)
         datos.m = list()
         catalogo = list()
         k = 0
@@ -16,11 +14,10 @@ function(file, verbose = FALSE) {
                 k = k + 1
                 k.dis = k.dis + 1
                 if (verbose) cat("Processing station: [",k.dis,"/",m,"] ", n, "\n")
-                idx = a$Serial.Estacion == n        
+                idx = a$Serial == n
                 b = a[idx, ]
                 mk = matrix(unique(cbind(as.numeric(b$Longitud), as.numeric(b$Latitud))), ncol = 2)
                 colnames(mk)<-c("Longitud", "Latitud")
-                # print(mk)
                 if ( length(unique(b$Latitud)) > 1 ) {
                         warning("Station appears to have more than one Lat/Long. Could there be more than one station with same serial number?\n")
                 }
@@ -34,13 +31,12 @@ function(file, verbose = FALSE) {
                         if (verbose)  cat("   + Processing station: [",k.dis,"/",m,"] ", n, ": sub estation ", i, "of", nrow(mk), "\n")
                         datos.m[[k]] = xts2ts(b.xts)
                         catalogo[[k]] = list(
-                                # Name = gsub(" *$", "", n),
                                 Name = as.character(b$Estacion[1]),
-                                # Serial = ifelse(is.na(serial), NA, serial[k]),
                                 Serial = n,
+                                Class = levels(b$Clase)[b$Clase[1]],
+                                State = as.character(b$Estado[1]),
                                 Ss = nrow(mk),
                                 S = i,
-                                # Altitude = ifelse(is.na(altitudes), NA, altitudes[k]),
                                 Altitude = b$Altura[1],
                                 Latitude = b$Latitud[1],
                                 Longitude = b$Longitud[1],
@@ -48,8 +44,6 @@ function(file, verbose = FALSE) {
                                 Measure.unit = as.character(b$Unidad.de.medida[1]),
                                 Install = time2ym(start(b.xts)),
                                 Start = time2ym(start(b.xts)),
-                                # State = ifelse(is.na(state), NA, state),
-                                State = as.character(b$Estado[1]),
                                 Avble.yrs = sort(unique(as.numeric(format(b$Fecha, "%Y"))))
                         )
                 }
