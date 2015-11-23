@@ -18,6 +18,7 @@ structure of class \code{list}:
         The required standard elements are:
         \describe{
                 \item{\code{Name}}{Station's name, class \code{"character"}}
+                \item{\code{Serial}}{Station's serial, class \code{"character"}}
                 \item{\code{Altitude}}{Stations's altitude in metres. Some data sources 
                 lack this information an is taken to be NA}
                 \item{\code{Latitude}}{Latitude in degrees}

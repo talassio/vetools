@@ -16,7 +16,7 @@ A list of class \code{Catalog} that contains the objects to complete.
 The collection should be taylored to contain only the stations to complete.
 }
   \item{cluster}{
-A vector specifying with elemente of the collection belongs wo with cluster. 
+A vector specifying which elements of the collection belong to which cluster. 
 This function deploys the EM Algorithm and completes missing data for each cluster. 
 Defaults to one single cluster. 
 }
