@@ -37,3 +37,14 @@ export(tssum)
 export(tssum.d2m)
 export(xts2ts)
 export(ym2time)
+
+importFrom("grDevices", "colorRamp", "rgb")
+importFrom("graphics", "abline", "axis", "image", "layout", "legend", 
+           "lines", "par", "plot", "points", "polygon", "text",
+           "title")
+importFrom("methods", "slot")
+importFrom("stats", "coef", "cov", "end", "frequency", "lm", "median",
+           "rnorm", "sd", "start", "time", "ts", "ts.union", "window",
+           "window<-")
+importFrom("utils", "read.csv")
+import(sp)

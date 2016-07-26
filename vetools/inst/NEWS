@@ -1,7 +1,9 @@
-Version 1.3.30
+Version 1.3.33
 -------------------------------------------------------------------------
 
 DEVELOPMENT
+* v1.3.33. Typos in constants.R
+
 * v1.3.31. Removed dependencies sp, RC2
 
 * v1.3.30. Second Major update.
@@ -26,3 +28,4 @@ NEW FEATURES
 * Total package size reduce by 25%. 
 
 BUG FIXES
+* Fixed typos in DC UTF name and Tachira state name
