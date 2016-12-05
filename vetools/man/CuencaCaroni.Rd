@@ -41,7 +41,7 @@ This data set contains a \code{collection} of two members of class \code{list}, 
 Ministerio de \enc{Industrías}{Industrias} \enc{básicas}{basicas} y \enc{Minería}{Mineria}.
 CVG, EDELCA (\enc{Electrificación}{Electrificacion} del \enc{Caroní}{Caroni}) C. A.
 Gerencia de \enc{Gestión}{Gestion} Ambiental.
-(\url{http://www.cvg.gob.ve/espanol/cvgedelca.html}).
+(\url{http://www.cvg.gob.ve/}).
 }
 \examples{
 data(CuencaCaroni, package = "vetools")

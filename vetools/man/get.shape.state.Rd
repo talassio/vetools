@@ -30,9 +30,14 @@ get.shape.venezuela(shape.file = "venezuela.rda")
         that can be plotted using the \command{\link{plot}} command.
 }
 \references{
-Maps where constructed and exported from ArcGIS 2.x.
+Centro Internacional de Ecología Tropical (CIET), Instituto Venezolano de Investigaciones Científicas (IVIC), Conservación Internacional Venezuela y UNESCO. 
+\url{www.ecosig.org.ve}.
+Editors: Rodríguez, J.P., Zambrano-Martínez, S., Lazo, R., Oliveira-Miranda, M.A., Solórzano, L.A. y Rojas-Suárez, F. Date: 2005/02/01. Edition: 1st.
 }
 \author{
+Centro Internacional de Ecología Tropical (CIET), Instituto Venezolano de Investigaciones Científicas (IVIC), Conservación Internacional Venezuela y UNESCO. 
+
+        Converted to shape-files by
         R. \enc{Ramírez}{Ramirez}. Parque \enc{Tecnológico}{Tecnologico} Sartenejas, Universidad \enc{Simón}{Simon} \enc{Bolívar}{Bolivar}. Venezuela.
         
         Wrapped in \R by A. M. Sajo-Castelli

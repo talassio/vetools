@@ -76,13 +76,15 @@ panorama <-
                 if (!missing(cut)) { abline(v = cut, col = cut.col, lty = cut.lty, lwd = cut.lwd) }
                 points(disponibles(datos[[ESTN]]), rep(1, length(disponibles(datos[[ESTN]]))), pch = 22, bg = xcol[[ESTN]])
                 
-                text(xdat[1] + 10, ylim[2] - 1.5 + ylim.names[2], labels = legend, pos = 3, cex = 0.85)
+                sep = range(xdat)
+                sep = c(0, (sep[2] - sep[1]) / 2, sep[2] - sep[1])
+                text(xdat[1] + sep[2], ylim[2] - 1.5 + ylim.names[2], labels = legend, pos = 3, cex = 0.85)
                 points(xdat[1], ylim[2] - 2 + ylim.names[2], pch = 22, bg = rgb(colf(1) / 255))
                 text(xdat[1], ylim[2] - 2 + ylim.names[2], labels = "100%", pos = 1, cex = 0.85)
-                points(xdat[1] + 10, ylim[2] - 2 + ylim.names[2], pch = 22, bg = rgb(colf(0.5) / 255))
-                text(xdat[1] + 10, ylim[2] - 2 + ylim.names[2], labels = "50%", pos = 1, cex = 0.85)
-                points(xdat[1] + 20, ylim[2] - 2 + ylim.names[2], pch = 22, bg = rgb(colf(0.0) / 255))
-                text(xdat[1] + 20, ylim[2] - 2 + ylim.names[2], labels = "0%", pos = 1, cex = 0.85)
+                points(xdat[1] + sep[2], ylim[2] - 2 + ylim.names[2], pch = 22, bg = rgb(colf(0.5) / 255))
+                text(xdat[1] + sep[2], ylim[2] - 2 + ylim.names[2], labels = "50%", pos = 1, cex = 0.85)
+                points(xdat[1] + sep[3], ylim[2] - 2 + ylim.names[2], pch = 22, bg = rgb(colf(0.0) / 255))
+                text(xdat[1] + sep[3], ylim[2] - 2 + ylim.names[2], labels = "0%", pos = 1, cex = 0.85)
                 
                 fp = n : 2
                 if ( n > 1 ) {

@@ -3,7 +3,7 @@
 #' @export
 read.HIDROX <-
 function(file, verbose = FALSE) {
-        a <- read.csv(file, header=TRUE)
+        a <- read.csv(file, header = TRUE)
         Nombres <- unique(a$Serial)
         datos.m = list()
         catalogo = list()
