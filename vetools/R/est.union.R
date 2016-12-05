@@ -10,6 +10,7 @@ est.union = function(collection, fun = mean, return.matrix = FALSE){
         if (return.matrix) { return(estado.pr) }
         st <- start(estado.pr)
         estado.pr <- apply(estado.pr, 1, fun, na.rm = TRUE)
+        estado.pr[is.nan(estado.pr)] <- NA
         estado.pr <- ts(estado.pr, start = st, frequency = 12)
         col <- collection
         col$union <- estado.pr
