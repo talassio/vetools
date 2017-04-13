@@ -1,6 +1,6 @@
 # Version 2.0
 #' @export
-complete.series <- function( collection, cluster = rep(1, length(collection$data)), control = list(maxiter = 1500, trace = FALSE, tol = 5e-5) ) {
+complete.series2 <- function( collection, cluster = rep(1, length(collection$data)), control = list(maxiter = 1500, trace = FALSE, tol = 5e-5) ) {
 
         if ( ! 'trace' %in% names(control) ) { control$trace = FALSE }
         if ( ! 'tol' %in% names(control) ) { control$tol = 5e-5 }
@@ -16,7 +16,7 @@ complete.series <- function( collection, cluster = rep(1, length(collection$data
                 max.local = 0
                 for ( m in 1 : 12 ) { # Extract each months data
                         # m = 3
-                        if (control$trace) { cat('Completing ts for month', m, '\n') }
+                        if (control$trace) { cat('Completing ts for month !!!!!!', m, '\n') }
                         k = 0
                         for ( e in idx ) {
                                 k = k + 1
@@ -25,6 +25,8 @@ complete.series <- function( collection, cluster = rep(1, length(collection$data
                                 n = length(datos)
                                 s = m # Supposing it starts in Jan
                                 if ( m < month.start ) { s = 12 + m } # move one year up if it dosen't
+                                # cat(paste("\n >>>>>>>>>>>>><<<< ", s, n, 12), '\n')
+                                # if (s >= n ) browser()
                                 month.idx = seq(s, n, 12)
                                 if ( month.idx[length(month.idx)] > n ) { month.idx = month.idx[-length(month.idx)] }
                                 month.data = datos[month.idx]
@@ -32,7 +34,8 @@ complete.series <- function( collection, cluster = rep(1, length(collection$data
                                 MONTH.DATA[seq_along(month.idx), k] = month.data
                         }
                         MONTH.DATA = as.matrix(MONTH.DATA[1 : max.local, ], ncol = length(idx)) # Resize to right size
-                        p0 = initialguess(MONTH.DATA) # Include monthly effects model
+                        p0 = vetools:::initialguess(MONTH.DATA) # Include monthly effects model
+                        browser()
                         p.sqem = SQUAREM::squarem(p = p0$p0, y = p0$y, fixptfn = missingdata, control = control)
                         p = missingdata(p.sqem$par, p0$y, updated.y = TRUE)
                         res = p$y
@@ -44,6 +47,8 @@ complete.series <- function( collection, cluster = rep(1, length(collection$data
                                 n = length(completed$data[[e]])
                                 s = m # Supposing it starts in Jan
                                 if ( m < month.start ) { s = 12 + m } # move one year up if it dosen't
+                                
+                                cat(paste("\n >>>>>>>>>>>>>>>>> ", s, n, 12), '\n')
                                 month.idx = seq(s, n, 12)
                                 if ( month.idx[length(month.idx)] > n ) { month.idx = month.idx[-length(month.idx)] }
                                 completed$data[[e]][month.idx] = res[1 : length(month.idx), k] + means[k]
