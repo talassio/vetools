@@ -1,6 +1,6 @@
 # Version 2.0
 #' @export
-complete.series2 <- function( collection, cluster = rep(1, length(collection$data)), control = list(maxiter = 1500, trace = FALSE, tol = 5e-5) ) {
+complete.series <- function( collection, cluster = rep(1, length(collection$data)), control = list(maxiter = 1500, trace = FALSE, tol = 5e-5) ) {
 
         if ( ! 'trace' %in% names(control) ) { control$trace = FALSE }
         if ( ! 'tol' %in% names(control) ) { control$tol = 5e-5 }
